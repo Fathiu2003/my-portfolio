@@ -333,6 +333,78 @@
     .tools-strip { padding: 40px 24px; }
     .divider { margin: 0 20px; }
   }
+
+
+  /* PROFILE & RESUME STYLES */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.profile-frame {
+  width: 320px;
+  height: 400px;
+  border-radius: 24px;
+  padding: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: linear-gradient(to bottom, transparent, rgba(10,10,15,0.5));
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  filter: grayscale(20%); /* Optional: matches the moody tech vibe */
+  transition: filter 0.3s ease;
+}
+
+.profile-frame:hover .profile-img {
+  filter: grayscale(0%);
+}
+
+.resume-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.resume-actions .btn-primary, 
+.resume-actions .btn-ghost {
+  padding: 12px 24px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .profile-frame {
+    width: 280px;
+    height: 350px;
+  }
+  .resume-actions {
+    justify-content: center;
+  }
+}
+
+.work-card {
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+}
+
+.work-card:hover {
+    border-color: var(--accent2);
+    transform: translateY(-8px) scale(1.02);
+}
 </style>
 </head>
 <body>
@@ -380,6 +452,45 @@
       <div class="stat-num">4</div>
       <div class="stat-label">Years in AI Tools</div>
     </div>
+    <div class="stat-item">
+  <div class="stat-num">3+</div>
+  <div class="stat-label">AI Web Apps Live</div>
+</div>
+<div class="stat-item">
+  <div class="stat-num">Fast</div>
+  <div class="stat-label">Vibe-Coding Logic</div>
+</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="about">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; align-items: center;">
+    
+    <div class="profile-container">
+      <div class="profile-frame">
+        <img src="mypic.jpg" alt="Bello Fathiu Adesina" class="profile-img">
+      </div>
+    </div>
+
+    <div class="bio-content">
+      <p class="section-label">The Founder</p>
+      <h2 class="section-title">Behind the <em>Code</em></h2>
+      <p class="section-sub" style="margin-bottom: 24px;">
+        I bridge the gap between technical architecture and digital growth. As the founder of BigFat Tech Solution, my mission is to automate excellence using the latest AI frameworks.
+      </p>
+      
+      <div class="resume-actions">
+        <a href="BELLLOFATHIU-CV.pdf" target="_blank" class="btn-primary">
+          <span>View Resume</span> 👁️
+        </a>
+        <a href="BELLLOFATHIU-CV.pdf" download="Bello_Fathiu_Resume" class="btn-ghost">
+          <span>Download CV</span> 📥
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -464,6 +575,7 @@
       </div>
     </div>
 
+    
   </div>
 </section>
 
@@ -524,6 +636,86 @@
       </div>
     </div>
 
+    <div class="work-card">
+  <div class="work-thumb" style="background: linear-gradient(135deg, #2D1B0A, #5D3A1A);">
+    🍲
+    <span class="work-thumb-label" style="background:rgba(245,200,66,0.2); color:#F5C842;">E-Commerce</span>
+  </div>
+  <div class="work-info">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+      <h3 style="margin-bottom: 0;">African Heritage Foods</h3>
+      <span class="tag tag-gold" style="font-size: 10px; padding: 2px 8px;">Built with Base44</span>
+    </div>
+    <p>Technical architecture and e-commerce deployment for a premium food brand. Focused on rapid AI-driven development and seamless user experience.</p>
+    <div style="display: flex; gap: 8px; margin-top: 12px;">
+       <span class="work-result">Full Technical Setup</span>
+       <span class="work-result" style="color: var(--accent);">AI-Optimized</span>
+    </div>
+  </div>
+</div>
+
+    <div class="work-card" onclick="window.open('https://elastic-prompt-vault-ai.base44.app/', '_blank')">
+  <div class="work-thumb" style="background: radial-gradient(circle at center, #1e1b4b, #0f172a);">
+    🎨
+    <span class="work-thumb-label" style="background:rgba(123,97,255,0.3); color:#B8ACFF;">AI Tool</span>
+  </div>
+  <div class="work-info">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+      <h3 style="margin-bottom: 0;">Elastic Prompt Vault</h3>
+      <span class="tag tag-purple" style="font-size: 10px; padding: 2px 8px;">Live Project</span>
+    </div>
+    <p>A specialized repository for high-fidelity AI prompts and image generation. Features a searchable vault for Midjourney and DALL-E prompts.</p>
+    <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+       <span class="work-result" style="color: var(--accent2);">Prompt Engineering</span>
+       <span class="work-result">Image Library</span>
+    </div>
+    <div style="margin-top: 16px; font-size: 11px; color: var(--accent); font-weight: 600;">
+       View Live App ↗
+    </div>
+  </div>
+</div>
+
+<div class="work-card" onclick="window.open('https://studio--namifyhub-qip7y.us-central1.hosted.app/', '_blank')">
+  <div class="work-thumb" style="background: linear-gradient(135deg, #0f172a, #1e293b);">
+    🏷️
+    <span class="work-thumb-label" style="background:rgba(0,229,192,0.2); color:#00E5C0;">SaaS Tool</span>
+  </div>
+  <div class="work-info">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+      <h3 style="margin-bottom: 0;">NamifyHub</h3>
+      <span class="tag tag-teal" style="font-size: 10px; padding: 2px 8px;">Firebase Hosted</span>
+    </div>
+    <p>An AI-powered brand naming engine that helps entrepreneurs generate unique business names and check domain availability in seconds.</p>
+    <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+       <span class="work-result">Branding Logic</span>
+       <span class="work-result" style="color: var(--accent2);">Cloud Deployed</span>
+    </div>
+    <div style="margin-top: 16px; font-size: 11px; color: var(--accent2); font-weight: 600;">
+       Launch App ↗
+    </div>
+  </div>
+</div>
+
+<div class="work-card" onclick="window.open('https://studio--studio-7122066216-d95ef.us-central1.hosted.app/', '_blank')">
+  <div class="work-thumb" style="background: linear-gradient(135deg, #0A0A0F, #1A1A24); border-bottom: 1px solid var(--border);">
+    🚀
+    <span class="work-thumb-label" style="background:rgba(123,97,255,0.3); color:#B8ACFF;">Agency Site</span>
+  </div>
+  <div class="work-info">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+      <h3 style="margin-bottom: 0;">BigFat Tech Solution</h3>
+      <span class="tag tag-purple" style="font-size: 10px; padding: 2px 8px;">Flagship</span>
+    </div>
+    <p>The digital headquarters for my tech consultancy. A high-performance, Firebase-hosted hub showcasing AI automation and modern web solutions.</p>
+    <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+       <span class="work-result" style="color: var(--accent);">Brand Identity</span>
+       <span class="work-result">Cloud Infrastructure</span>
+    </div>
+    <div style="margin-top: 16px; font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">
+       Visit Agency Site ↗
+    </div>
+  </div>
+</div>
   </div>
 </section>
 
@@ -652,7 +844,7 @@
   <div class="cta-inner">
     <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:600;position:relative;">Ready to Grow?</p>
     <h2>Let's Build Something<br><span style="background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">That Converts</span></h2>
-    <p>Whether you need a new website, viral content, or a full digital marketing strategy — I'm ready to help you stand out.</p>
+    <p>Whether you need a new website, viral content, or a full digital marketing strategy. I'm ready to help you stand out.</p>
     <div class="cta-btns">
       <a href="https://calendly.com/bigfattechsolution/new-meeting-1" class="btn-primary">Book a Free Call ↗</a>
       <a href="#services" class="btn-ghost">View Services</a>
