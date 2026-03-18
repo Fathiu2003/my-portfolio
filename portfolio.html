@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bello Fathiu Adesina Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0A0A0F;
+    --bg2: #111118;
+    --bg3: #17171F;
+    --card: #1A1A24;
+    --border: rgba(255,255,255,0.08);
+    --border-h: rgba(255,255,255,0.18);
+    --text: #F0EEF8;
+    --muted: #8A88A0;
+    --accent: #7B61FF;
+    --accent2: #00E5C0;
+    --accent3: #FF6B6B;
+    --gold: #F5C842;
+    --grad1: linear-gradient(135deg, #7B61FF, #00E5C0);
+    --grad2: linear-gradient(135deg, #FF6B6B, #F5C842);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 48px; height: 64px;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 20px;
+    background: var(--grad1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+  }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none; font-size: 14px;
+    font-weight: 400; transition: color 0.2s; letter-spacing: 0.3px;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    background: var(--accent); color: #fff !important; padding: 8px 20px;
+    border-radius: 100px; font-weight: 500 !important; font-size: 13px !important;
+    transition: transform 0.2s, opacity 0.2s !important;
+  }
+  .nav-cta:hover { transform: translateY(-1px); opacity: 0.9; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 120px 48px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero-orb {
+    position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none;
+  }
+  .orb1 { width: 600px; height: 600px; background: rgba(123,97,255,0.18); top: -100px; left: -100px; }
+  .orb2 { width: 400px; height: 400px; background: rgba(0,229,192,0.12); bottom: 0; right: -80px; }
+  .orb3 { width: 300px; height: 300px; background: rgba(255,107,107,0.10); top: 40%; left: 50%; transform: translateX(-50%); }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(123,97,255,0.12); border: 1px solid rgba(123,97,255,0.3);
+    padding: 6px 16px; border-radius: 100px;
+    font-size: 12px; font-weight: 500; color: #A89CFF;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s ease both;
+  }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.3)} }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(44px, 7vw, 84px);
+    font-weight: 800; line-height: 1.05; letter-spacing: -2px;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero h1 .line2 {
+    background: var(--grad1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    font-size: 18px; color: var(--muted); max-width: 560px;
+    font-weight: 300; line-height: 1.7;
+    margin-bottom: 40px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-btns {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--grad1); color: #fff; padding: 14px 32px;
+    border-radius: 100px; font-weight: 500; font-size: 15px;
+    cursor: pointer; border: none; transition: transform 0.2s, opacity 0.2s;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+  .btn-ghost {
+    background: transparent; color: var(--text); padding: 14px 32px;
+    border-radius: 100px; font-weight: 400; font-size: 15px;
+    cursor: pointer; border: 1px solid var(--border-h); transition: border-color 0.2s, background 0.2s;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.3); }
+
+  .hero-stats {
+    display: flex; gap: 48px; margin-top: 64px; padding-top: 48px;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 800;
+    background: var(--grad1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+  @keyframes fadeUp { from { opacity:0; transform: translateY(24px); } to { opacity:1; transform: translateY(0); } }
+
+  /* SECTIONS */
+  section { padding: 96px 48px; max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent);
+    font-weight: 600; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif; font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 16px;
+  }
+  .section-title em { font-style: normal; background: var(--grad1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .section-sub { color: var(--muted); font-size: 16px; max-width: 520px; line-height: 1.7; margin-bottom: 56px; }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
+  }
+  .service-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 20px; padding: 32px;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 0 0, rgba(123,97,255,0.08), transparent 60%);
+    pointer-events: none;
+  }
+  .service-card:hover { border-color: rgba(123,97,255,0.4); transform: translateY(-4px); }
+  .service-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin-bottom: 20px;
+  }
+  .service-card h3 {
+    font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700;
+    margin-bottom: 10px; letter-spacing: -0.3px;
+  }
+  .service-card p { color: var(--muted); font-size: 14px; line-height: 1.7; margin-bottom: 20px; }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 100px;
+    letter-spacing: 0.3px;
+  }
+  .tag-purple { background: rgba(123,97,255,0.15); color: #A89CFF; border: 1px solid rgba(123,97,255,0.25); }
+  .tag-teal { background: rgba(0,229,192,0.12); color: #00E5C0; border: 1px solid rgba(0,229,192,0.2); }
+  .tag-coral { background: rgba(255,107,107,0.12); color: #FF8B8B; border: 1px solid rgba(255,107,107,0.2); }
+  .tag-gold { background: rgba(245,200,66,0.12); color: #F5C842; border: 1px solid rgba(245,200,66,0.2); }
+
+  /* WORK */
+  .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .work-card {
+    border-radius: 20px; overflow: hidden; border: 1px solid var(--border);
+    background: var(--card); transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
+  }
+  .work-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.2); }
+  .work-card:nth-child(1) .work-thumb { background: linear-gradient(135deg, #1A1630, #2D1F5E); }
+  .work-card:nth-child(2) .work-thumb { background: linear-gradient(135deg, #0F2420, #1A4A3A); }
+  .work-card:nth-child(3) .work-thumb { background: linear-gradient(135deg, #2A1014, #5A1A1A); }
+  .work-card:nth-child(4) .work-thumb { background: linear-gradient(135deg, #1A1A10, #4A3D0A); }
+  .work-thumb {
+    height: 220px; display: flex; align-items: center; justify-content: center;
+    font-size: 48px; position: relative; overflow: hidden;
+  }
+  .work-thumb-label {
+    position: absolute; top: 16px; right: 16px;
+    font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 100px;
+  }
+  .work-info { padding: 24px; }
+  .work-info h3 {
+    font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700;
+    margin-bottom: 6px; letter-spacing: -0.3px;
+  }
+  .work-info p { color: var(--muted); font-size: 13px; }
+  .work-result {
+    display: inline-block; margin-top: 12px;
+    font-size: 12px; font-weight: 600; color: var(--accent2);
+    background: rgba(0,229,192,0.1); border: 1px solid rgba(0,229,192,0.2);
+    padding: 3px 10px; border-radius: 100px;
+  }
+
+  /* PROCESS */
+  .process-steps { display: flex; flex-direction: column; gap: 0; position: relative; }
+  .process-steps::before {
+    content: ''; position: absolute; left: 23px; top: 40px; bottom: 40px;
+    width: 1px; background: linear-gradient(to bottom, var(--accent), var(--accent2));
+  }
+  .process-step {
+    display: flex; gap: 28px; align-items: flex-start; padding: 28px 0;
+  }
+  .step-num {
+    width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 14px;
+    background: var(--bg); border: 2px solid var(--accent); color: var(--accent);
+    position: relative; z-index: 1;
+  }
+  .process-step:nth-child(2) .step-num { border-color: #6080FF; color: #6080FF; }
+  .process-step:nth-child(3) .step-num { border-color: var(--accent2); color: var(--accent2); }
+  .process-step:nth-child(4) .step-num { border-color: var(--accent3); color: var(--accent3); }
+  .process-step:nth-child(5) .step-num { border-color: var(--gold); color: var(--gold); }
+  .step-content h3 {
+    font-family: 'Syne', sans-serif; font-size: 19px; font-weight: 700;
+    letter-spacing: -0.3px; margin-bottom: 6px;
+  }
+  .step-content p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+  /* TOOLS */
+  .tools-strip {
+    padding: 48px; background: var(--bg2);
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  }
+  .tools-inner { max-width: 1100px; margin: 0 auto; }
+  .tools-label { font-size: 12px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; text-align: center; }
+  .tools-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .tool-pill {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 8px 20px; border-radius: 100px; font-size: 13px; font-weight: 500;
+    color: var(--text); transition: border-color 0.2s;
+  }
+  .tool-pill:hover { border-color: var(--border-h); }
+
+  /* TESTIMONIALS */
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .testimonial {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 20px; padding: 28px;
+    transition: border-color 0.3s;
+  }
+  .testimonial:hover { border-color: rgba(123,97,255,0.3); }
+  .testimonial-stars { color: var(--gold); font-size: 14px; margin-bottom: 16px; }
+  .testimonial-text {
+    color: var(--muted); font-size: 14px; line-height: 1.75;
+    font-style: italic; margin-bottom: 20px;
+  }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .author-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 13px;
+  }
+  .author-info .name { font-weight: 600; font-size: 14px; }
+  .author-info .role { color: var(--muted); font-size: 12px; }
+
+  /* CTA */
+  .cta-section {
+    padding: 96px 48px; text-align: center; position: relative; overflow: hidden;
+  }
+  .cta-inner {
+    max-width: 700px; margin: 0 auto;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 28px; padding: 64px 48px; position: relative; overflow: hidden;
+  }
+  .cta-inner::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(123,97,255,0.15), transparent 60%);
+  }
+  .cta-inner h2 {
+    font-family: 'Syne', sans-serif; font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800; letter-spacing: -1px; margin-bottom: 16px;
+    position: relative;
+  }
+  .cta-inner p { color: var(--muted); font-size: 16px; margin-bottom: 36px; position: relative; }
+  .cta-btns { display: flex; gap: 12px; justify-content: center; position: relative; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border); padding: 32px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 1100px; margin: 0 auto; color: var(--muted); font-size: 13px;
+  }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text); }
+
+  /* DIVIDER */
+  .divider { border: none; height: 1px; background: var(--border); margin: 0 48px; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    section { padding: 64px 20px; }
+    .work-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 28px; flex-wrap: wrap; justify-content: center; }
+    footer { flex-direction: column; gap: 16px; padding: 28px 20px; text-align: center; }
+    .hero { padding: 100px 24px 60px; }
+    .cta-inner { padding: 40px 24px; }
+    .tools-strip { padding: 40px 24px; }
+    .divider { margin: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">BELLO FATHIU PORTFOLIO</div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#process">Process</a>
+    <a href="#contact" class="nav-cta">Let's Talk ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="max-width:100%;padding-left:0;padding-right:0;">
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-orb orb3"></div>
+  <div class="hero-badge"><span class="badge-dot"></span> Available for Projects</div>
+  <h1>
+    Build. Market.<br>
+    <span class="line2">Grow with AI.</span>
+  </h1>
+  <p class="hero-sub">Web developer, digital marketing strategist & AI-powered video creator. I help brands dominate online from pixel-perfect websites to viral content.</p>
+  <div class="hero-btns">
+    <a href="#work" class="btn-primary">See My Work ↓</a>
+    <a href="#contact" class="btn-ghost">Start a Project →</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">80+</div>
+      <div class="stat-label">Projects Delivered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3.2×</div>
+      <div class="stat-label">Avg. ROI</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">50M+</div>
+      <div class="stat-label">Content Views</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Years in AI Tools</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="section-label">What I Do</p>
+  <h2 class="section-title">Full-Stack <em>Digital Growth</em></h2>
+  <p class="section-sub">Every service is supercharged with AI — faster delivery, smarter targeting, better results.</p>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(123,97,255,0.15);">🌐</div>
+      <h3>Web Development</h3>
+      <p>High-performance websites and web apps built with modern tech stacks. Clean code, fast loads, mobile-first — built with AI-assisted development for rapid delivery.</p>
+      <div class="service-tags">
+        <span class="tag tag-purple">React / Next.js</span>
+        <span class="tag tag-purple">UI/UX Design</span>
+        <span class="tag tag-purple">SEO-Ready</span>
+        <span class="tag tag-purple">E-Commerce</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(0,229,192,0.12);">📣</div>
+      <h3>Paid Advertising</h3>
+      <p>AI-optimized ad campaigns across Meta, Google, and TikTok. Laser-targeted audiences, compelling creatives, and conversion-focused landing pages.</p>
+      <div class="service-tags">
+        <span class="tag tag-teal">Meta Ads</span>
+        <span class="tag tag-teal">Google Ads</span>
+        <span class="tag tag-teal">TikTok Ads</span>
+        <span class="tag tag-teal">A/B Testing</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(255,107,107,0.12);">📱</div>
+      <h3>Social Media Management</h3>
+      <p>End-to-end social strategy — content calendars, AI-generated captions, scheduling, community management, and monthly analytics reports.</p>
+      <div class="service-tags">
+        <span class="tag tag-coral">Instagram</span>
+        <span class="tag tag-coral">TikTok</span>
+        <span class="tag tag-coral">LinkedIn</span>
+        <span class="tag tag-coral">Content Strategy</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(245,200,66,0.12);">🔍</div>
+      <h3>SEO & Content</h3>
+      <p>Rank higher and stay there. Technical SEO audits, keyword strategy, AI-written long-form content, and link-building — all built to compound over time.</p>
+      <div class="service-tags">
+        <span class="tag tag-gold">Technical SEO</span>
+        <span class="tag tag-gold">AI Content</span>
+        <span class="tag tag-gold">Link Building</span>
+        <span class="tag tag-gold">Local SEO</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(123,97,255,0.15);">🎬</div>
+      <h3>AI Video Creation</h3>
+      <p>Cinematic brand videos, UGC-style ads, explainer animations, and short-form reels — all produced using cutting-edge AI video tools. No camera needed.</p>
+      <div class="service-tags">
+        <span class="tag tag-purple">Runway ML</span>
+        <span class="tag tag-purple">HeyGen</span>
+        <span class="tag tag-purple">Kling AI</span>
+        <span class="tag tag-purple">Voiceover AI</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(0,229,192,0.12);">📊</div>
+      <h3>Analytics & Strategy</h3>
+      <p>Data-driven decision making — GA4 setup, custom dashboards, funnel analysis, and monthly strategy sessions to keep your growth on track.</p>
+      <div class="service-tags">
+        <span class="tag tag-teal">GA4</span>
+        <span class="tag tag-teal">Looker Studio</span>
+        <span class="tag tag-teal">CRO</span>
+        <span class="tag tag-teal">Reporting</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- WORK -->
+<section id="work">
+  <p class="section-label">Selected Work</p>
+  <h2 class="section-title">Results that <em>Speak</em></h2>
+  <p class="section-sub">A few projects where AI tools met strategy — and the numbers show it.</p>
+  <div class="work-grid">
+
+    <div class="work-card">
+      <div class="work-thumb">
+        🛍️
+        <span class="work-thumb-label tag-purple" style="background:rgba(123,97,255,0.3);color:#B8ACFF;">E-Commerce</span>
+      </div>
+      <div class="work-info">
+        <h3>Lagos Fashion Brand</h3>
+        <p>Full Shopify store + Meta ad campaigns + AI product photography for a Lagos-based clothing brand.</p>
+        <span class="work-result">↑ 280% Revenue in 90 Days</span>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-thumb">
+        🏥
+        <span class="work-thumb-label" style="background:rgba(0,229,192,0.2);color:#00E5C0;">Healthcare</span>
+      </div>
+      <div class="work-info">
+        <h3>MedClinic SEO & Web</h3>
+        <p>Redesigned website with local SEO strategy, blog content written with AI, and Google Ads management.</p>
+        <span class="work-result">↑ 4× Organic Traffic</span>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-thumb">
+        🎥
+        <span class="work-thumb-label" style="background:rgba(255,107,107,0.2);color:#FF8B8B;">Video</span>
+      </div>
+      <div class="work-info">
+        <h3>AI Brand Campaign</h3>
+        <p>Full 30-second brand video produced with Runway ML + HeyGen AI avatar. Zero production crew required.</p>
+        <span class="work-result">12M Views on TikTok</span>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-thumb">
+        🚀
+        <span class="work-thumb-label" style="background:rgba(245,200,66,0.2);color:#F5C842;">SaaS</span>
+      </div>
+      <div class="work-info">
+        <h3>SaaS Landing Page</h3>
+        <p>Conversion-optimized landing page + TikTok + Instagram content strategy driving 1,400 trial signups.</p>
+        <span class="work-result">1,400 Signups in 60 Days</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- TOOLS STRIP -->
+<div class="tools-strip">
+  <div class="tools-inner">
+    <div class="tools-label">AI & Marketing Stack</div>
+    <div class="tools-row">
+      <span class="tool-pill">ChatGPT / Claude</span>
+      <span class="tool-pill">Runway ML</span>
+      <span class="tool-pill">HeyGen</span>
+      <span class="tool-pill">Midjourney</span>
+      <span class="tool-pill">ElevenLabs</span>
+      <span class="tool-pill">Kling AI</span>
+      <span class="tool-pill">Meta Ads Manager</span>
+      <span class="tool-pill">Google Ads</span>
+      <span class="tool-pill">Ahrefs</span>
+      <span class="tool-pill">SEMrush</span>
+      <span class="tool-pill">Next.js</span>
+      <span class="tool-pill">Webflow</span>
+      <span class="tool-pill">Shopify</span>
+      <span class="tool-pill">GA4</span>
+      <span class="tool-pill">Looker Studio</span>
+      <span class="tool-pill">CapCut</span>
+      <span class="tool-pill">Notion AI</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section id="process">
+  <p class="section-label">How I Work</p>
+  <h2 class="section-title">From Idea to <em>Impact</em></h2>
+  <p class="section-sub">A streamlined process designed to launch fast and iterate smarter.</p>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>Discovery & Strategy</h3>
+        <p>We start with a deep-dive call to understand your brand, goals, and audience. I then map out a custom strategy — no templates, just a plan built around your growth.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>Research & Positioning</h3>
+        <p>Competitor analysis, keyword research, audience profiling — all powered by AI tools and platform data. This is where we find your unfair advantage.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>Build & Create</h3>
+        <p>Web development, ad creatives, video production, and content — delivered on time using AI-powered tools that cut production time without cutting quality.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <h3>Launch & Optimize</h3>
+        <p>We go live with full tracking in place, then iterate based on real data. A/B tests, ad optimizations, content performance — continuous improvement every week.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <h3>Report & Scale</h3>
+        <p>Monthly reports with clear metrics, insights, and the next 30-day growth plan. When something works, we double down and scale it fast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- TESTIMONIALS -->
+<section>
+  <p class="section-label">Client Love</p>
+  <h2 class="section-title">What Clients <em>Say</em></h2>
+  <p class="section-sub">Real results, real feedback from brands I've helped grow.</p>
+  <div class="testimonials-grid">
+
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"The AI-generated video ads completely changed our game. We went from zero content to 12M TikTok views in a month — without spending on a film crew."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:rgba(123,97,255,0.2);color:#A89CFF;">AO</div>
+        <div class="author-info">
+          <div class="name">Subuloye David</div>
+          <div class="role">CEO, YoungDav Biz</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Our website was rebuilt in 3 weeks and our Google rankings jumped from page 3 to top 5. The SEO content strategy is still paying dividends 6 months later."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:rgba(0,229,192,0.15);color:#00E5C0;">KE</div>
+        <div class="author-info">
+          <div class="name">Oyedele Abass</div>
+          <div class="role">Director, ImanBilal</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"From social strategy to paid ads — everything is handled. Our Instagram grew 300% and the Meta campaigns consistently hit 4× ROAS. Best investment we made."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:rgba(245,200,66,0.15);color:#F5C842;">BI</div>
+        <div class="author-info">
+          <div class="name">Duni</div>
+          <div class="role">Founder, African Heritage Foods</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section" id="contact">
+  <div class="cta-inner">
+    <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:600;position:relative;">Ready to Grow?</p>
+    <h2>Let's Build Something<br><span style="background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">That Converts</span></h2>
+    <p>Whether you need a new website, viral content, or a full digital marketing strategy — I'm ready to help you stand out.</p>
+    <div class="cta-btns">
+      <a href="https://calendly.com/bigfattechsolution/new-meeting-1" class="btn-primary">Book a Free Call ↗</a>
+      <a href="#services" class="btn-ghost">View Services</a>
+    </div>
+    <p style="margin-top:24px;font-size:12px;color:var(--muted);position:relative;">Usually replies within 24 hours · Based in Lagos, NG · Works globally</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>© 2025 Bello Fathiu Adeshine · Built with ♥ and AI</div>
+  <div class="footer-links">
+    <a href="https://instagram.com/bigfathiu1">Instagram</a>
+    <a href="https://linkedin.com/in/bello-fathiu-946837387">LinkedIn</a>
+    <a href="https://x.com/BigFathiu">Twitter/X</a>
+    <a href="https://studio--studio-7122066216-d95ef.us-central1.hosted.app/">BigFat Tech Solution</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .work-card, .testimonial, .process-step').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
